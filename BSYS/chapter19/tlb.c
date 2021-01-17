@@ -78,9 +78,9 @@ int main(int argc, char *argv[]) {
     // sort array of average access times
     qsort(access_time, iterations, sizeof(unsigned long), cmpfunc);
 
-    // cut first 10 and last 30 percent to eliminate 'bad' measurements
+    // calculate interquantile distance to eliminate 'bad' measurements
     unsigned long total_access_time = 0;
-    for (int i = iterations * 0.1; i < (iterations * 0.7); ++i) {
+    for (int i = iterations * 0.2; i < (iterations * 0.8); ++i) {
         total_access_time += access_time[i];
     }
 
